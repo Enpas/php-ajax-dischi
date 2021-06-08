@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/style/style.css">
+  <title>Vue Ajax Dischi</title>
+</head>
+<body>
+  
+  <div id="app">
+
+    <header>
+
+      <img src="assets/img/logo.png" alt="logo spotify">
+
+    </header>
+
+    <main>
+
+      <div class="container-discs">
+
+        <div class="disc" v-for="disc in arrDiscs">
+
+          <div class="disc-txt">
+
+            <img :src="disc.poster" :alt="disc.title">
+            <h2>{{ disc.title }}</h2>
+            <p>{{ disc.author }}</p>
+            <p class="year">{{ disc.year }}</p>
+            
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js' integrity='sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==' crossorigin='anonymous'></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
