@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/style/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
   <title>Vue Ajax Dischi</title>
 </head>
 <body>
@@ -14,6 +15,14 @@
     <header>
 
       <img src="assets/img/logo.png" alt="logo spotify">
+      <select
+          @change="getAPI"
+          v-model= "searchGenre">
+          <option value="all">Seleziona un genere</option>
+          <option
+          v-for="genre in arrGenres"
+          :value="genre">{{ genre }}</option>
+        </select>
 
     </header>
 
@@ -41,7 +50,6 @@
   </div>
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js' integrity='sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==' crossorigin='anonymous'></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

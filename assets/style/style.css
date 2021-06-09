@@ -8,9 +8,21 @@
 
 /* HEADER */
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 80px;
   padding: 15px 25px;
   background-color: #2D3A46;
+}
+
+header select {
+  padding: 10px 20px;
+  width: 200px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 0;
+  outline: none;
 }
 
 header img {
