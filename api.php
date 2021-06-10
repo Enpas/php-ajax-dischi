@@ -1,36 +1,48 @@
 <?php
-
   include __DIR__ . '/data/db.php';
 
-$arrGenres = [];
-$arrDiscs = empty($_GET['genre']) || $_GET['genre'] === 'all' ? $database : [];
+  $genres = [];
+  $years = [];
+  $dbOrdered = [];
 
-foreach($database as $disc){
-
-  if(!in_array($disc['genre'],$arrGenres)){
-    $arrGenres[] = $disc['genre'];
+  foreach ($database as $disc) {
+    if (!in_array($disc['year'], $years)) {
+      $years[] = $disc['year'];
+    }
+    rsort($years); 
   }
 
-}
-
-if(count($arrDiscs) === 0){
-
-  foreach($database as $disc){
-    if($disc['genre'] === $_GET['genre']){
-      $arrDiscs[] = $disc;
+  foreach ($years as $year) {
+    foreach ($database as $disc) {
+      if ($year === $disc['year']) {
+        $dbOrdered[] = $disc;
+      }
+    }
+  }
+  
+  $discs = empty($_GET['genre']) || $_GET['genre'] === 'all' ? $dbOrdered : [];
+  
+  foreach ($database as $disc) {
+    if (!in_array($disc['genre'], $genres)) {
+      $genres[] = $disc['genre'];
     }
   }
 
-}
+  if (count($discs) === 0) {
+    foreach ($dbOrdered as $disc) {
+      if ($disc['genre'] === $_GET['genre']) {
+        $discs[] = $disc;
+      }
+    }
+  }
 
-
-$response = [
-  'arrDiscs' => $arrDiscs,
-  'arrGenres' => $arrGenres
-];
+  $response = [
+    'discs' => $discs,
+    'genres' => $genres
+  ];
 
   header('Content-Type: application/json');
 
-  echo json_encode($database);
+  echo json_encode($response);
 
 ?>

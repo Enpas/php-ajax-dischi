@@ -11,40 +11,33 @@
 <body>
   
   <div id="app">
-
     <header>
-
       <img src="assets/img/logo.png" alt="logo spotify">
       <select
-          @change="getAPI"
-          v-model= "searchGenre">
-          <option value="all">Seleziona un genere</option>
-          <option
-          v-for="genre in arrGenres"
-          :value="genre">{{ genre }}</option>
-        </select>
-
+        @change="getAPI"
+        v-model="selectGenre"
+      >
+        <option value="all">Seleziona un genere</option>
+        <option
+          v-for="genre in arrGenres" 
+          :value="genre"
+        >
+        {{ genre }}
+        </option>
+      </select>
     </header>
 
     <main>
-
       <div class="container-discs">
-
         <div class="disc" v-for="disc in arrDiscs">
-
           <div class="disc-txt">
-
             <img :src="disc.poster" :alt="disc.title">
             <h2>{{ disc.title }}</h2>
             <p>{{ disc.author }}</p>
             <p class="year">{{ disc.year }}</p>
-            
           </div>
-
         </div>
-
       </div>
-
     </main>
 
   </div>

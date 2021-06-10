@@ -19,10 +19,17 @@ header {
 header select {
   padding: 10px 20px;
   width: 200px;
+  border-radius: 5px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   border: 0;
   outline: none;
+  color: #FFF;
+  background-color: #1E2C3B;
+}
+
+header select:hover {
+  box-shadow: 1px 1px 3px 2px rgb(80, 252, 152);
 }
 
 header img {
